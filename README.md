@@ -1,1 +1,0 @@
-# chunokko-summer-map2026

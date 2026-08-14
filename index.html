@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta property="og:title" content="47都道府県ちゅのっこチャレンジ">
+<meta property="og:description" content="ちゅのグッズと一緒に全国制覇を目指す、47都道府県ちゅのっこチャレンジ！">
+<meta property="og:image" content="https://veil-kikaku.github.io/chunokko-challenge/ogp.png?v=1">
+<meta property="og:url" content="https://veil-kikaku.github.io/chunokko-challenge/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="47都道府県ちゅのっこチャレンジ">
+<meta name="twitter:description" content="ちゅのグッズと一緒に全国制覇を目指す、47都道府県ちゅのっこチャレンジ！">
+<meta name="twitter:image" content="https://veil-kikaku.github.io/chunokko-challenge/ogp.png?v=1">
+
+<title>47都道府県ちゅのっこチャレンジ</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+
+<script async src="https://platform.twitter.com/widgets.js"></script>
+</head>
+<body>
+
+<header>
+
+  <div class="header-main">
+
+    <div class="header-info">
+      <h1>🗾47都道府県ちゅのっこチャレンジ</h1>
+
+      <div id="stats"></div>
+
+      <div class="progress">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+
+    <img
+      src="chuno_pilot.png"
+      alt="ちゅの"
+      class="header-image">
+
+  </div>
+
+</header>
+
+<div id="container">
+
+<div id="map-container">
+
+  <div id="pref-hover-list"></div>
+
+  <div id="zoom-controls">
+    <div class="zoom-buttons">
+      <button id="zoom-in">＋</button>
+      <button id="zoom-out">－</button>
+    </div>
+
+    <div id="zoom-rate">100%</div>
+
+    <button id="zoom-reset">リセット</button>
+  </div>
+
+  <div id="map-legend">
+
+    <div class="legend-title">投稿数</div>
+    <div><span class="legend-box none"></span>0件</div>
+    <div><span class="legend-box lv1"></span>1〜2件</div>
+    <div><span class="legend-box lv2"></span>3〜4件</div>
+    <div><span class="legend-box lv3"></span>5件以上</div>
+
+    <div class="legend-separator"></div>
+
+    <div class="legend-title">選択状態</div>
+    <div><span class="legend-box selected"></span>選択中</div>
+
+    <div class="legend-separator"></div>
+
+    <div id="total-posts"></div>
+    
+    <div class="legend-separator"></div>
+
+    <div
+      id="show-top-page"
+      class="legend-link">
+      トップページ
+    </div>
+
+  </div>
+
+  <object
+    id="japan-map"
+    type="image/svg+xml"
+    data="japan.svg">
+  </object>
+
+</div>
+
+<aside id="side-panel">
+
+<h2 id="pref-name">
+都道府県を選択
+</h2>
+
+<div id="post-list"></div>
+
+</aside>
+
+</div>
+
+<script src="app.js"></script>
+
+<footer class="credits">
+  Map data: Geolonia Japanese Prefectures (Based on Wikipedia 日本地図.svg)
+</footer>
+</body>
+</html>
