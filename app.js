@@ -393,20 +393,18 @@ function showWelcomePage() {
       <h3>企画について</h3>
 
       <p>
-        2026年の鈴日奈ちゅのさんの生誕祭に向けて、<br>
-        ちゅのっこ達がちゅのグッズと共に<br>
-        日本全国の名所や観光地を巡り、<br>
-        47都道府県制覇を目指す企画です。
+        ちゅのっこ達がちゅのちグッズと共に<br>
+        2026年夏の思い出を残す企画です。<br>
       </p>
 
       <p>
-        募集期間：2026/06/01～2026/06/10（終了）
+        募集期間：2026/08/01～2026/08/31
       </p>
 
       <blockquote
         class="twitter-tweet"
         data-theme="light">
-        <a href="https://x.com/muiKikaku/status/2061402454848331961"></a>
+        <a href="https://x.com/muiKikaku/status/2083206056058982870"></a>
       </blockquote>
 
     </div>
