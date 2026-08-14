@@ -11,7 +11,6 @@ async function init() {
     prefMap[item.prefecture].push(item);
   });
 
-  updateStats();
   renderPrefHoverList();
 
   const mapObject = document.getElementById("japan-map");
