@@ -380,7 +380,7 @@ function selectPrefecture(pref) {
 function showWelcomePage() {
 
   document.getElementById("pref-name").textContent =
-    "47都道府県ちゅのっこチャレンジ";
+    "ちゅのっこ夏のおでかけマッピング2026";
 
   document.getElementById("post-list").innerHTML = `
     <div class="welcome">
