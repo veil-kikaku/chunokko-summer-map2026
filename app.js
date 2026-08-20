@@ -11,6 +11,7 @@ async function init() {
     prefMap[item.prefecture].push(item);
   });
 
+  updateStats();
   renderPrefHoverList();
 
   const mapObject = document.getElementById("japan-map");
@@ -78,8 +79,8 @@ function setupMap() {
 
   const svgRoot = svgDoc.querySelector("svg");
   if (!svgRoot) return;
-  svgRoot.style.touchAction = "none";
 
+  svgRoot.style.touchAction = "none";
 
   if (!svgDoc.getElementById("hover-style")) {
     const style = svgDoc.createElementNS(
@@ -100,12 +101,12 @@ function setupMap() {
         stroke-width:4 !important;
       }
 
-     @media (hover: none) and (pointer: coarse) {
-       .prefecture.selected{
-         stroke:#ff9800 !important;
-         stroke-width:5 !important;
-       }
-     }
+      @media (hover: none) and (pointer: coarse) {
+        .prefecture.selected{
+          stroke:#ff9800 !important;
+          stroke-width:5 !important;
+        }
+      }
     `;
 
     svgRoot.appendChild(style);
@@ -126,6 +127,7 @@ function setupMap() {
       pointerDownPref = e.target.closest(".prefecture");
 
       setHoverPrefecture("");
+
       svgDoc
         .querySelectorAll(".hover-linked")
         .forEach(el => el.classList.remove("hover-linked"));
@@ -139,7 +141,6 @@ function setupMap() {
       document
         .getElementById("japan-map")
         .classList.add("dragging");
-
     });
 
     svgRoot.addEventListener("pointermove", e => {
@@ -198,7 +199,7 @@ function setupMap() {
         .getElementById("japan-map")
         .classList.remove("dragging");
     });
-    
+
     svgRoot.addEventListener("pointerleave", () => {
       isDragging = false;
 
@@ -221,11 +222,12 @@ function setupMap() {
       const count = prefMap[prefName]?.length || 0;
 
       const titleEl = pref.querySelector("title");
+
       if (titleEl) {
         titleEl.remove();
       }
 
-      pref.onmouseenter = e => {
+      pref.onmouseenter = () => {
         if (isTouchDevice() || isDragging) return;
 
         pref.classList.add("hover-linked");
@@ -234,7 +236,7 @@ function setupMap() {
 
       pref.onmousemove = null;
 
-      pref.onmouseleave = e => {
+      pref.onmouseleave = () => {
         if (isTouchDevice()) return;
 
         pref.classList.remove("hover-linked");
@@ -276,6 +278,7 @@ function setupMap() {
     .forEach(item => {
       item.onmouseenter = () => {
         const targetName = item.dataset.pref;
+
         const svgDoc =
           document.getElementById("japan-map").contentDocument;
 
@@ -285,6 +288,7 @@ function setupMap() {
           ?.querySelectorAll(".prefecture")
           .forEach(pref => {
             const prefName = pref.dataset.name;
+
             pref.classList.toggle(
               "hover-linked",
               prefName === targetName
@@ -304,9 +308,10 @@ function setupMap() {
             pref.classList.remove("hover-linked");
           });
       };
-      
+
       item.onclick = () => {
         const targetName = item.dataset.pref;
+
         const svgDoc =
           document.getElementById("japan-map").contentDocument;
 
@@ -320,7 +325,6 @@ function setupMap() {
           setSelectedPrefecture(targetName);
         }
       };
-
     });
 }
 
@@ -346,21 +350,8 @@ function setSelectedPrefecture(prefName) {
     });
 }
 
+/* 総投稿数 */
 function updateStats() {
-  const completed = Object.keys(prefMap).length;
-  const total = 47;
-
-  const percent =
-    ((completed / total) * 100).toFixed(1);
-
-  const remaining = total - completed;
-
-  document.getElementById("stats").textContent =
-    `${completed} / ${total} 都道府県 (${percent}%) ・ 残り${remaining}都道府県`;
-
-  document.getElementById("progress-bar").style.width =
-    `${percent}%`;
-
   document.getElementById("total-posts").textContent =
     `総投稿数 ${spots.length}件`;
 }
@@ -377,7 +368,6 @@ function selectPrefecture(pref) {
 }
 
 function showWelcomePage() {
-
   document.getElementById("pref-name").textContent =
     "ちゅのっこ夏のおでかけマッピング2026";
 
@@ -471,6 +461,7 @@ function showPrefecture(prefName) {
   container.innerHTML = `
     <div class="spot-index">
       <div class="spot-index-title">スポット一覧</div>
+
       <ul>
         ${spotIndex}
       </ul>
