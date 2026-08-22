@@ -40,7 +40,7 @@ header h1{
 }
 
 .header-image{
-  height:clamp(56px, 7vw, 110px);
+  height:clamp(40px, 5.5vw, 85px);
   width:auto;
   flex-shrink:0;
 }
