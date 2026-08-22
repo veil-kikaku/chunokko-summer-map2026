@@ -40,8 +40,9 @@ header h1{
 }
 
 .header-image{
-  height:120px;
+  height:clamp(56px, 8vw, 120px);
   width:auto;
+  flex-shrink:0;
 }
 
 .progress{
@@ -453,11 +454,6 @@ height:40%;
     font-size:13px;
   }
 
-  .header-image{
-    height:70px;
-    flex-shrink:0;
-  }
-
   /* 地図と右ペイン */
 
   #container{
@@ -521,9 +517,6 @@ height:40%;
 
 
 @media (max-width:480px){
-  .header-image{
-    height:56px;
-  }
 
   #stats{
     font-size:11px;
